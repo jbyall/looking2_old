@@ -1,5 +1,7 @@
 class Physician
   include Mongoid::Document
+  #attr_accessible :nameSearch
+
   field :type, type: String
   field :nameSearch, type: Array
   field :locationSearch, type: Array

@@ -40,3 +40,37 @@
 	# 		end
 	# 	end
 	# end
+
+
+	<%= f.fields_for :nameSearch_attributes do |ns| %>
+  <%= ns.text_field %>
+<% end %>
+
+
+
+
+
+<div class="field">
+    <%= f.label "Location Search"%><br>
+    <%= f.text_field :locationSearch %>
+  </div>
+  <div class="field">
+    <%= f.label "Category Display" %><br>
+    <%= f.text_field :categoryDisplay %>
+  </div>
+  <div class="field">
+    <%= f.label "Category Search Display" %><br>
+    <%= f.text_field :categorySearchDisplay %>
+  </div>
+  <div class="field">
+    <%= f.label "Treatments Display" %><br>
+    <%= f.text_field :treatmentsDisplay %>
+  </div>
+  <div class="field">
+    <%= f.label "Physicians Display" %><br>
+    <%= f.text_field :physiciansDisplay %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br>
+    <%= f.text_field :summary %>
+  </div>

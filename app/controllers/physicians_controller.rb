@@ -15,7 +15,8 @@ class PhysiciansController < ApplicationController
   # GET /physicians/new
   def new
     @physician = Physician.new
-    # @physician.contact.build
+    @physician.nameSearch = Array.new
+    #@physician.contact.build()
   end
 
   # GET /physicians/1/edit
@@ -25,7 +26,29 @@ class PhysiciansController < ApplicationController
   # POST /physicians
   # POST /physicians.json
   def create
-    @physician = Physician.new(physician_params)
+    attributes = physician_params.clone
+    
+    if attributes.has_key?(:nameSearch)
+      attributes[:nameSearch] = physician_params[:nameSearch].split(',')
+    end
+
+    if attributes.has_key?(:locationSearch)
+      attributes[:locationSearch] = physician_params[:locationSearch].split(',')
+    end
+
+    if attributes.has_key?(:categorySearchDisplay)
+      attributes[:categorySearchDisplay] = physician_params[:categorySearchDisplay].split(',')
+    end
+
+    if attributes.has_key?(:treatmentsDisplay)
+      attributes[:treatmentsDisplay] = physician_params[:treatmentsDisplay].split(',')
+    end
+
+    if attributes.has_key?(:physiciansDisplay)
+      attributes[:physiciansDisplay] = physician_params[:physiciansDisplay].split(',')
+    end
+    
+    @physician = Physician.new(attributes)
 
     respond_to do |format|
       if @physician.save
