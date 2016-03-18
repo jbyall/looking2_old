@@ -1,0 +1,42 @@
+  <%= fields_for @physician.contact do |contact_form|%>
+    <%= contact_form.text_field :name %>
+    <%= contact_form.text_field :street %>
+    <%= contact_form.text_field :local %>
+    <%= contact_form.text_field :phone %>
+    <%= contact_form.text_field :url %>
+  <% end %>
+
+
+  	# attr_writer :name, :street, :local, :phone, :url
+
+	# def initialize(name, street, local, phone, url)
+	# 	@name, @street, @local, @phone, @url = name, street, local, phone, url
+	# end
+
+	# def initialize()
+	# end
+
+	# def mongoize
+	# 	[ name, street, local, phone, url ]
+	# end
+
+	# class << self
+	# 	def demongoize(object)
+	# 		Contact.new()#(object[0], object[1], object[2], object[3], object[4])
+	# 	end
+
+	# 	def mongoize(object)
+	# 		case object
+	# 		when Contact then object.mongoize
+	# 		when Hash then Contact.new(object[:name], object[:street], object[:local], object[:phone], object[:url])
+	# 		else object
+	# 		end
+	# 	end
+
+	# 	def evolve(object)
+	# 		case object
+	# 		when Contact then object.mongoize
+	# 		else object
+	# 		end
+	# 	end
+	# end

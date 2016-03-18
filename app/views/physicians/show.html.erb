@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @physician.type %>
+</p>
+
+<p>
+  <strong>Namesearch:</strong>
+  <%= @physician.nameSearch %>
+</p>
+
+<p>
+  <strong>Locationsearch:</strong>
+  <%= @physician.locationSearch %>
+</p>
+
+<p>
+  <strong>Categorydisplay:</strong>
+  <%= @physician.categoryDisplay %>
+</p>
+
+<p>
+  <strong>Categorysearchdisplay:</strong>
+  <%= @physician.categorySearchDisplay %>
+</p>
+
+<p>
+  <strong>Treatmentsdisplay:</strong>
+  <%= @physician.treatmentsDisplay %>
+</p>
+
+<p>
+  <strong>Physiciansdisplay:</strong>
+  <%= @physician.physiciansDisplay %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @physician.summary %>
+</p>
+
+<%= link_to 'Edit', edit_physician_path(@physician) %> |
+<%= link_to 'Back', physicians_path %>

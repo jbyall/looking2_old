@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Looking2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<!-- <header>
+		<div id="logo-container">
+			<a href="#" id="logo">L2</a>
+		</div>
+		<div>
+			<span>Looking2</span>
+		</div>
+		<div id="links">
+			<nav>
+				<ul>
+					<li><a href="#" id="nav1">Search</a></li>
+					<li><a href="#" id="nav2">Create Listing</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header> -->
+	<section>
+		<%= yield %>
+		
+	</section>
+	<!-- <aside>
+		<h3>This is the aside</h3>
+	</aside>
+	<footer>
+		<h2>This is a test of the footer</h2>
+	</footer> -->
+</body>
+</html>

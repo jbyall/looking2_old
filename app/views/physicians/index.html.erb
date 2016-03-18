@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Physicians</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name Search</th>
+      <th>Location Search</th>
+      <th>Category Display</th>
+      <th>Category Search Display</th>
+      <th>Treatments Display</th>
+      <th>Physicians Display</th>
+      <th>Summary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @physicians.each do |physician| %>
+      <tr>
+        <td><%= physician.type %></td>
+        <td><%= physician.nameSearch %></td>
+        <td><%= physician.locationSearch %></td>
+        <td><%= physician.categoryDisplay %></td>
+        <td><%= physician.categorySearchDisplay %></td>
+        <td><%= physician.treatmentsDisplay %></td>
+        <td><%= physician.physiciansDisplay %></td>
+        <td><%= physician.summary %></td>
+        <td><%= link_to 'Show', physician %></td>
+        <td><%= link_to 'Edit', edit_physician_path(physician) %></td>
+        <td><%= link_to 'Destroy', physician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Physician', new_physician_path %>

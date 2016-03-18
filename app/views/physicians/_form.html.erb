@@ -1,0 +1,72 @@
+<%= form_for(@physician) do |f| %>
+  <% if @physician.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@physician.errors.count, "error") %> prohibited this physician from being saved:</h2>
+
+      <ul>
+      <% @physician.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :contact_attributes do |contact_form|%>
+    <div class="field">
+      <%= contact_form.label :name %>
+      <%= contact_form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= contact_form.label :street %>
+      <%= contact_form.text_field :street %>
+    </div>
+    <div class="field">
+      <%= contact_form.label :local %>
+      <%= contact_form.text_field :local %>
+    </div>
+    <div class="field">
+      <%= contact_form.label :phone %>
+      <%= contact_form.text_field :phone %>
+    </div>
+    <div class="field">
+      <%= contact_form.label :url %>
+      <%= contact_form.text_field :url %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "balls" %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label "Name Search" %><br>
+    <%= f.text_field :nameSearch %>
+  </div>
+  <div class="field">
+    <%= f.label "Location Search"%><br>
+    <%= f.text_field :locationSearch %>
+  </div>
+  <div class="field">
+    <%= f.label "Category Display" %><br>
+    <%= f.text_field :categoryDisplay %>
+  </div>
+  <div class="field">
+    <%= f.label "Category Search Display" %><br>
+    <%= f.text_field :categorySearchDisplay %>
+  </div>
+  <div class="field">
+    <%= f.label "Treatments Display" %><br>
+    <%= f.text_field :treatmentsDisplay %>
+  </div>
+  <div class="field">
+    <%= f.label "Physicians Display" %><br>
+    <%= f.text_field :physiciansDisplay %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br>
+    <%= f.text_field :summary %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
