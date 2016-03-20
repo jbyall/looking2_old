@@ -1,15 +1,22 @@
 class Physician
   include Mongoid::Document
-  #attr_accessible :nameSearch
-
-  field :type, type: String
-  field :nameSearch, type: Array
-  field :locationSearch, type: Array
+  include Mongoid::Timestamps::Created
+  include Mongoid::Timestamps::Updated
+  
+  #Display fields
+  field :contact, type: Contact
   field :categoryDisplay, type: String
   field :categorySearchDisplay, type: Array
   field :treatmentsDisplay, type: Array
   field :physiciansDisplay, type: Array
   field :summary, type: String
-  embeds_one :contact
-  accepts_nested_attributes_for :contact
+
+  #Search fields
+  field :nameSearch, type: Array
+  field :locationSearch, type: Array
+  
+  #Other
+  field :type, type: String # Possible Values = "single" or "multiple"
+  field :status, type: String # Possible Values = "new", "approved", "rejected"
+  # NOTE - Date fields are specified in include section
 end

@@ -5,6 +5,7 @@ class PhysiciansController < ApplicationController
   # GET /physicians.json
   def index
     @physicians = Physician.all
+    debug()
   end
 
   # GET /physicians/1
@@ -15,8 +16,6 @@ class PhysiciansController < ApplicationController
   # GET /physicians/new
   def new
     @physician = Physician.new
-    @physician.nameSearch = Array.new
-    #@physician.contact.build()
   end
 
   # GET /physicians/1/edit
@@ -27,28 +26,43 @@ class PhysiciansController < ApplicationController
   # POST /physicians.json
   def create
     attributes = physician_params.clone
-    
     if attributes.has_key?(:nameSearch)
       attributes[:nameSearch] = physician_params[:nameSearch].split(',')
+      attributes[:nameSearch].each do |ns|
+        ns.strip!
+      end
     end
 
     if attributes.has_key?(:locationSearch)
       attributes[:locationSearch] = physician_params[:locationSearch].split(',')
+      attributes[:locationSearch].each do |ls|
+        ls.strip!
+      end
     end
 
     if attributes.has_key?(:categorySearchDisplay)
       attributes[:categorySearchDisplay] = physician_params[:categorySearchDisplay].split(',')
+      attributes[:categorySearchDisplay].each do |csd|
+        csd.strip!
+      end
     end
 
     if attributes.has_key?(:treatmentsDisplay)
       attributes[:treatmentsDisplay] = physician_params[:treatmentsDisplay].split(',')
+      attributes[:treatmentsDisplay].each do |td|
+        td.strip!
+      end
     end
 
     if attributes.has_key?(:physiciansDisplay)
       attributes[:physiciansDisplay] = physician_params[:physiciansDisplay].split(',')
+      attributes[:physiciansDisplay].each do |pd|
+        pd.strip!
+      end
     end
-    
+    #debug()
     @physician = Physician.new(attributes)
+    @physician.update_attribute(:status, "new")
 
     respond_to do |format|
       if @physician.save
@@ -93,6 +107,8 @@ class PhysiciansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def physician_params
-      params.require(:physician).permit(:type, :nameSearch, :locationSearch, :categoryDisplay, :categorySearchDisplay, :treatmentsDisplay, :physiciansDisplay, :summary)
+      params.require(:physician).permit(:type, :nameSearch, :locationSearch, :categoryDisplay, :categorySearchDisplay, :treatmentsDisplay, :physiciansDisplay, :summary, contact: params[:physician][:contact].try(:keys))
     end
+
+
 end

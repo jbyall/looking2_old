@@ -1,41 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Physicians</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name Search</th>
-      <th>Location Search</th>
-      <th>Category Display</th>
-      <th>Category Search Display</th>
-      <th>Treatments Display</th>
-      <th>Physicians Display</th>
-      <th>Summary</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Physicians</h1>
     <% @physicians.each do |physician| %>
-      <tr>
-        <td><%= physician.type %></td>
-        <td><%= physician.nameSearch %></td>
-        <td><%= physician.locationSearch %></td>
-        <td><%= physician.categoryDisplay %></td>
-        <td><%= physician.categorySearchDisplay %></td>
-        <td><%= physician.treatmentsDisplay %></td>
-        <td><%= physician.physiciansDisplay %></td>
-        <td><%= physician.summary %></td>
-        <td><%= link_to 'Show', physician %></td>
-        <td><%= link_to 'Edit', edit_physician_path(physician) %></td>
-        <td><%= link_to 'Destroy', physician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        
+        <h2>Display Fields</h2>
+        <h3>Name: <%= physician.contact.name %></h3>
+        <h4>Category: <%= physician.categoryDisplay %></h4>
+        <p>Street: <%= physician.contact.street %></p>
+        <p>Local: <%= physician.contact.local %></p>
+        <p>Treatments: <%= physician.treatmentsDisplay.join(' | ') %></p>
+        <p>Summary: <%= physician.summary %></p>
 
+        <h2>Search Fields</h2>
+        <p>Category Search: <%= physician.categorySearchDisplay.join(' | ') %></p>
+        <p>Name Search: <%= physician.nameSearch.join(' | ') %></p>
+        <p>Loacation Search: <%= physician.locationSearch.join(' | ') %></p>
+        <p><%= link_to 'Show', physician %></p>
+        <p><%= link_to 'Edit', edit_physician_path(physician) %></p>
+        <p><%= link_to 'Destroy', physician, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
 <br>
 
 <%= link_to 'New Physician', new_physician_path %>
+
+<%= content_tag_for(:tr, @article) do %>
+  <td><%= @article.title %></td>
+<% end %>

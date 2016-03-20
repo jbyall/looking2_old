@@ -12,30 +12,28 @@
   <% end %>
   <!-- **********Note that _attributes was added to :contact****** -->
   <h3>Contact Deatils</h3>
-    <%= f.fields_for :contact, @physician.contact do |contact_form|%>
-      <div class="field">
-        <%= contact_form.label :name %>
-        <%= contact_form.text_field :name %>
-      </div>
-      <div class="field">
-        <%= contact_form.label :street %>
-        <%= contact_form.text_field :street %>
-      </div>
-      <div class="field">
-        <%= contact_form.label :local %>
-        <%= contact_form.text_field :local %>
-      </div>
-      <div class="field">
-        <%= contact_form.label :phone %>
-        <%= contact_form.text_field :phone %>
-      </div>
-      <div class="field">
-        <%= contact_form.label :url %>
-        <%= contact_form.text_field :url %>
-      </div>
-    <% end %>
-
-
+  <%= f.fields_for :contact_attributes do |contact_form|%>
+    <div class="field">
+      <%= contact_form.label :name %>
+      <%= contact_form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= contact_form.label "Street Address" %>
+      <%= contact_form.text_field :street %>
+    </div>
+    <div class="field">
+      <%= contact_form.label "City & State" %>
+      <%= contact_form.text_field :local %>
+    </div>
+    <div class="field">
+      <%= contact_form.label :phone %>
+      <%= contact_form.text_field :phone %>
+    </div>
+    <div class="field">
+      <%= contact_form.label :url %>
+      <%= contact_form.text_field :url %>
+    </div>
+  <% end %>
   <h3>Display Fields</h3>
   <div class="field">
     <%= f.label :type %><br>
