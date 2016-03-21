@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
+    <% content_for :title do %>
+    	Physician Search
+    <% end %>
     <section id="results-section">
-        <h2>Physicians</h2>
         <div id="results-container">
 	        <% @physicians.each do |physician| %>
+	        <br>
 	            <p class="result-link"><%= link_to physician.contact.name, physician %></p>
 	            <p class="result-title"><%= physician.categoryDisplay %></p>
 	            <p class="result-categories"><%= physician.categorySearchDisplay.join(' | ') %></p>

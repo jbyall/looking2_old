@@ -10,12 +10,12 @@
 	<nav id="nav-menu">
         <ul id="nav-items">
             <li id="logo-item"><a href="#">Looking2</a></li>
-            <li id="span-item"><span>Physician Results</span></li>
+            <li id="span-item"><span><%= yield :title %></span></li>
             <li class="menu-right"><a href="#">List</a></li>
             <li class="menu-right"><a href="#">Search</a></li>
         </ul>
     </nav>
-    <div id="content-section">
+    <div id="content-container">
 		<%= yield %>
 	</div>
 	<!-- <aside>

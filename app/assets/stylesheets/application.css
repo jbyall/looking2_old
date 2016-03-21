@@ -15,9 +15,10 @@
  */
 body{
     font-family: Helvetica, Arial, sans-serif;
+    margin-left: 20px;
 }
-#content-section{
-	padding-left: 20px;
+#content-container{
+	/*padding-left: 20px;*/
 }
 #nav-items{
     list-style-type: none;
