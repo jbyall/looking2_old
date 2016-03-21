@@ -7,6 +7,10 @@ class PhysiciansController < ApplicationController
     @physicians = Physician.all
   end
 
+  def search
+    
+  end
+
   # GET /physicians/1
   # GET /physicians/1.json
   def show

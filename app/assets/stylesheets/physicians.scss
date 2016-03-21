@@ -7,18 +7,47 @@
   font-size: 13px;
   line-height: 18px;
 }*/
-#results-section {
+#results-section, #search-container {
   background-color: #f4f4f1;
   color: #333;
   font-size: 13px;
   line-height: 18px;
   border: 2px dashed gray;
 }
+#results-section {
+	width: 66%;
+	display: inline-block;
+}
+#search-aside{
+	width: 32%;
+	float: right;
+}
 #results-section p{
 	margin: 0;
 }
 #results-container{
 	margin-left: 10px;
+}
+#search-container{
+	text-align: center;
+}
+#search-container h1{
+	color: #d1342b;
+}
+#search-menu{
+	display: inline-block;
+	min-height: 300px;
+	min-width: 55%;
+	text-align: left;
+	/*background-color: green;*/
+	border: 2px dashed gray;
+	padding: 10px;
+}
+#search-menu a{
+	/*text-decoration: none;*/
+	font-size: 20px;
+	font-weight: bold;
+	color: #cc3300;
 }
 .result-link a{
 	font-size: 20px;

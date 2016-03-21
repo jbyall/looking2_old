@@ -1,0 +1,24 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#home-container{
+	text-align: center;
+}
+#home-container h1{
+	color: #d1342b;
+}
+#home-menu{
+	display: inline-block;
+	min-height: 300px;
+	min-width: 55%;
+	text-align: left;
+	/*background-color: green;*/
+	border: 2px dashed gray;
+	padding: 10px;
+}
+#home-menu a{
+	/*text-decoration: none;*/
+	font-size: 20px;
+	font-weight: bold;
+	color: #cc3300;
+}
