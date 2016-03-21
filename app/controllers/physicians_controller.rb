@@ -5,7 +5,6 @@ class PhysiciansController < ApplicationController
   # GET /physicians.json
   def index
     @physicians = Physician.all
-    debug()
   end
 
   # GET /physicians/1

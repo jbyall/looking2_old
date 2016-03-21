@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Physicians</h1>
+    <% @physicians.each do |physician| %>
+        
+        <h2>Display Fields</h2>
+        <h3>Name: <%= physician.contact.name %></h3>
+        <h4>Category: <%= physician.categoryDisplay %></h4>
+        <p>Street: <%= physician.contact.street %></p>
+        <p>Local: <%= physician.contact.local %></p>
+        <p>Treatments: <%= physician.treatmentsDisplay.join(' | ') %></p>
+        <p>Summary: <%= physician.summary %></p>
+
+        <h2>Search Fields</h2>
+        <p>Category Search: <%= physician.categorySearchDisplay.join(' | ') %></p>
+        <p>Name Search: <%= physician.nameSearch.join(' | ') %></p>
+        <p>Loacation Search: <%= physician.locationSearch.join(' | ') %></p>
+        <p><%= link_to 'Show', physician %></p>
+        <p><%= link_to 'Edit', edit_physician_path(physician) %></p>
+        <p><%= link_to 'Destroy', physician, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+<br>
+
+<%= link_to 'New Physician', new_physician_path %>
+
+<%= content_tag_for(:tr, @article) do %>
+  <td><%= @article.title %></td>
+<% end %>

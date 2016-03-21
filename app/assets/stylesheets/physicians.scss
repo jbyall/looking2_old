@@ -1,3 +1,32 @@
 // Place all the styles related to the Physicians controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+section{
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+#results {
+  background-color: #f4f4f1;
+  border: 2px dashed gray;
+}
+#results p{
+	margin: 0;
+}
+.result-link a{
+	font-size: 20px;
+	font-weight: bold;
+	color: #cc3300;
+}
+.result-title{
+	font-size: 14px;
+	font-weight: bold;
+	color: #808080;
+}
+.result-categories{
+	color: #cc3300;
+}
+.contact-address{
+	font-weight: bold;
+}

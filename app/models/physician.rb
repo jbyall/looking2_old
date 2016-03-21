@@ -19,4 +19,5 @@ class Physician
   field :type, type: String # Possible Values = "single" or "multiple"
   field :status, type: String # Possible Values = "new", "approved", "rejected"
   # NOTE - Date fields are specified in include section
+  @@count = Physician.all.count
 end
