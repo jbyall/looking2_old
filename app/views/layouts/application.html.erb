@@ -7,26 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<header id="main-header">
-		<div>
-			<a href="#" id="logo">L2</a>
-		</div>
-		<div>
-			<span>Looking2</span>
-		</div>
-		<div>
-			<nav id="main-nav">
-				<ul>
-					<li><a href="#" id="nav1">Search</a></li>
-					<li><a href="#" id="nav2">Create Listing</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<section>
+	<nav id="nav-menu">
+        <ul id="nav-items">
+            <li id="logo-item"><a href="#">Looking2</a></li>
+            <li id="span-item"><span>Physician Results</span></li>
+            <li class="menu-right"><a href="#">List</a></li>
+            <li class="menu-right"><a href="#">Search</a></li>
+        </ul>
+    </nav>
+    <div id="content-section">
 		<%= yield %>
-		
-	</section>
+	</div>
 	<!-- <aside>
 		<h3>This is the aside</h3>
 	</aside>

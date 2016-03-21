@@ -14,26 +14,54 @@
  *= require_self
  */
 body{
-	margin-left: 20px;
+    font-family: Helvetica, Arial, sans-serif;
 }
-#main-header{
-	display: inline-block;
+#content-section{
+	padding-left: 20px;
 }
-#main-header div{
-	display: inline;
-	background-color: red;
+#nav-items{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #d1342b;
+    white-space: nowrap;
+    
+    /*code to keep nav on top when scrolling*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*width: 100%;*/
 }
-#main-nav ul{
-	display: inline;
-	list-style: none;
-	padding: 1em 0;
-	background-color: red;
+#logo-item, #span-item{
+    float: left;
 }
-#main-nav li{
-	display:inline;
+#nav-items li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
 }
-#main-nav a{
-	padding:1em 2em;
-	text-decoration: none;
-	color: white;
+#logo{
+    /*padding-right: 50px;*/
+}
+#nav-items li span{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0.5em;
+    padding-left: 8em;
+    font-size: 22px;
+    width: 200px;
+}
+
+li a:hover:not(.active) {
+    color: #111;
+}
+.menu-right{
+    float: right;
+}
+.active {
+    background-color: #4CAF50;
 }

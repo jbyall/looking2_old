@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Physicians</h1>
-    <section id="results">
-        <% @physicians.each do |physician| %>
-            <p class="result-link"><%= link_to physician.contact.name, physician %></p>
-            <p class="result-title"><%= physician.categoryDisplay %></p>
-            <p class="result-categories"><%= physician.categorySearchDisplay.join(' | ') %></p>
-            <p class="contact-address"><%= physician.contact.local %></p>
-            <p class="contact-address"><%= physician.contact.phone %></p>
-        <% end %>
+    <section id="results-section">
+        <h2>Physicians</h2>
+        <div id="results-container">
+	        <% @physicians.each do |physician| %>
+	            <p class="result-link"><%= link_to physician.contact.name, physician %></p>
+	            <p class="result-title"><%= physician.categoryDisplay %></p>
+	            <p class="result-categories"><%= physician.categorySearchDisplay.join(' | ') %></p>
+	            <p class="contact-address"><%= physician.contact.local %></p>
+	            <p class="contact-address"><%= physician.contact.phone %></p>
+	        <% end %>
+	    </div>
     </section>
