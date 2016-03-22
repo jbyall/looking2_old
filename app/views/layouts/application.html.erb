@@ -12,7 +12,7 @@
             <li id="logo-item"><%= link_to 'Looking2', home_index_path %></li>
             <li id="span-item"><span><%= yield :title %></span></li>
             <li class="menu-right"><%= yield :list %></li>
-            <li class="menu-right"><a href="#">Search</a></li>
+            <li class="menu-right"><%= link_to 'Search', physicians_search_path %></li>
         </ul>
     </nav>
     <div id="content-container">

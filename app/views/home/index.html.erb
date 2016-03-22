@@ -1,5 +1,8 @@
     <% content_for :title do %>
-    	Home
+    	
+    <% end %>
+    <% content_for :list do %>
+      <%= link_to 'List', new_physician_path %>
     <% end %>
     <section id="home-section">
         <div id="home-container">
