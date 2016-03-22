@@ -8,7 +8,35 @@ class PhysiciansController < ApplicationController
   end
 
   def search
-    
+    @name = physician_search_params[:nameSearch]
+    @location = physician_search_params[:locationSearch]
+    @category = physician_search_params[:categorySearchDisplay]
+    #build search query
+    # query = String.new
+    # if !@name.blank?
+    #   query += "nameSearch = #{@name}, "
+    # end
+    # if !@location.blank?
+    #   query += "locationSearch = #{@location}, "
+    # end
+    # if !@category.blank?
+    #   query += "categorySearchDisplay = #{@category}"
+    # else
+    #   query = query.chop.chop
+    # end
+    query = {}
+    query[:nameSearch] = @name unless @name.blank?
+    query[:locationSearch] = @location unless @location.blank?
+    query[:categorySearchDisplay] = @category unless @category.blank?
+    @physicians = Physician.all(query)
+
+    # if query != nil
+    #   @physicians = Physician.for_js(query)
+    # else
+    #   @physicians = Physician.all
+    # end
+    # @physicians = Physician.where(nameSearch: @name)
+    render "index"
   end
 
   # GET /physicians/1
@@ -110,7 +138,20 @@ class PhysiciansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def physician_params
-      params.require(:physician).permit(:type, :nameSearch, :locationSearch, :categoryDisplay, :categorySearchDisplay, :treatmentsDisplay, :physiciansDisplay, :summary, contact: params[:physician][:contact].try(:keys))
+      params.require(:physician).permit(
+        :type, 
+        :nameSearch, 
+        :locationSearch,
+        :categoryDisplay,
+        :categorySearchDisplay,
+        :treatmentsDisplay,
+        :physiciansDisplay,
+        :summary,
+        contact: params[:physician][:contact].try(:keys))
+    end
+
+    def physician_search_params
+      params.permit(:nameSearch, :locationSearch, :categorySearchDisplay)
     end
 
 
