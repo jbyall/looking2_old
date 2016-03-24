@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+mongoid.yml
+secrets.yml
+PhysiciansDataExport.csv
+seeds.rb
+viewData.rb
+cleanData.rb
