@@ -46,7 +46,6 @@ class PhysiciansController < ApplicationController
 
   # GET /physicians/new
   def new
-    params.fetch(:physician, {}).permit(:test)
     @physician = Physician.new
   end
 
