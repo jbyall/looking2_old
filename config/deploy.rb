@@ -5,7 +5,7 @@ set :application, 'looking2'
 set :repo_url, 'git@github.com:jbyall/looking2.git'
 
 set :deploy_to, '/home/deploy/looking2'
-# set :pty, true
+set :pty, true
 
 set :ssh_options, {
 	forward_agent: true,
