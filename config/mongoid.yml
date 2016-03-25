@@ -16,6 +16,7 @@ development:
 #         read:
 #           mode: :primary
 #         max_pool_size: 1
+# test
 production:
     clients:
         default:

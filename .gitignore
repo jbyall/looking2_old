@@ -11,8 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
-mongoid.yml
-secrets.yml
+/config/mongoid.yml
+/config/secrets.yml
 PhysiciansDataExport.csv
 seeds.rb
 viewData.rb
