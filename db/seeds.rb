@@ -5,78 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-require 'csv'
 
-
-#removes vertical tabs from string
-def remove_crap(myString)
-	return myString.gsub(/\v/, '/')
-end
-
-#removes all whitespaces from string
-def remove_whitespaces(myString)
-	return myString.gsub(/\s+/, "")
-end
-
-def is_person(myString)
-	if myString.include? "MD"#(myString.include? ",") && (myString.include? "MD")
-		return true
-	end
-	return false
-end
-
-def is_phone(myString)
-	if /(\d{3})\.(\d{3})\.(\d{4})?(.+)/ =~ myString
-		return true
-	end
-	return false
-end
-
-def is_url(myString)
-	if /\w+\.(com|gov|org)/ =~ myString
-		return true
-	end
-	return false
-end
 
 
 Physician.delete_all
-
-
-CSV.foreach("/Users/JBYALL/looking2/db/PhysicianDataExport.csv") do |row|
-	person = ""
-	phone = ""
-	url = ""
-	myPeeps = Array.new
-	org = ""
-	part_people = ""
-
-	contact = remove_crap(row[0]).split('/')
-
-	contact.each do |part|
-		if is_person(part) #parse person
-			myPeeps.push(part.capitalize)
-		elsif is_phone(part) #parse phone
-			phone = part
-		elsif is_url(part) #parse url
-			url = part
-		elsif part.include? "[" #parse cs string of people
-			part_people = part.split(',')
-			part_people.each do |blah|
-				myPeeps.push(blah)
-			end
-		else
-			org = part
-		end
-	end
-	# TODO: parse the category fields
-
-	# TODO: parse the address fields
-
-	# TODO: parse hospital
-
-	# TODO: parse highlights (if necessary)
-	
-	Physician.create!(:name => org, :phone => phone, :url => url, :physicians => myPeeps)
-end
+contact1 = Contact.new("David M Goldstein, MD", "2500 Brooktree Rd, Ste 300", "Wexford, PA 15090", "724.934.7780", "www.nhnaturalmedicine.com")
+contact1.mongoize()
+Physician.create!(
+	:type => "single",
+	:nameSearch => ["Goldstein","David","North Hills Natural Medicine"],
+	:locationSearch => ["pa", "allegheny", "pittsburgh", "wexford"],
+	:categoryDisplay => "Doctor",
+	:categorySearchDisplay => ["Holistic", "Nutritional Therapy",  "Detoxificaiton", "Hormone Therapy", "Cancer"],
+	:treatmentsDisplay => ["Holistic", "Nutritional Therapy", "Detoxificaiton", "Bio-identical hormone therapy"],
+	:summary => "Specializing in natural approaces to the improving health and facilitation healing through...",
+	:contact => contact1,
+	:status => "new")
 
