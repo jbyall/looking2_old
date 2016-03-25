@@ -138,16 +138,18 @@ class PhysiciansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def physician_params
-      params.require(:physician).permit(
-        :type, 
-        :nameSearch, 
-        :locationSearch,
-        :categoryDisplay,
-        :categorySearchDisplay,
-        :treatmentsDisplay,
-        :physiciansDisplay,
-        :summary,
-        contact: params[:physician][:contact].try(:keys))
+      if !params.blank?
+        params.require(:physician).permit(
+          :type, 
+          :nameSearch, 
+          :locationSearch,
+          :categoryDisplay,
+          :categorySearchDisplay,
+          :treatmentsDisplay,
+          :physiciansDisplay,
+          :summary,
+          contact: params[:physician][:contact].try(:keys))
+      end
     end
 
     def physician_search_params
