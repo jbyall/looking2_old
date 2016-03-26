@@ -1,6 +1,10 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+	display:inline-block;
+	max-width: 780px;
+}
 #home-container{
 	text-align: center;
 }
@@ -8,7 +12,7 @@
 	color: #d1342b;
 }
 #home-menu{
-	display: inline-block;
+	/*display: inline-block;*/
 	min-height: 300px;
 	min-width: 55%;
 	text-align: left;
@@ -16,7 +20,14 @@
 	border: 2px dashed gray;
 	padding: 10px;
 }
-#home-menu a{
+.te{
+	color:#d1342b;
+}
+.red>li.active>a, .red>li.active>a:focus, .red>li.active>a:hover{
+    color: #fff;
+    background-color: #d1342b;
+}
+.tab-content a{
 	/*text-decoration: none;*/
 	display: block;
 	font-size: 20px;
@@ -24,3 +35,7 @@
 	color: #cc3300;
 	padding-bottom: 5px;
 }
+
+/*.tab-pane{
+
+}*/
