@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  get 'physicians/search'
+  get 'moving/index'
+  get '/moving', to: redirect('moving/index')
 
-  resources :physicians
+  # get 'home/index'
+  # get 'physicians/search'
+
+  # resources :physicians
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'moving#index'
+
+  #root '/public/moving'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
