@@ -44,7 +44,7 @@ group :development do
   gem 'spring'
 
   #Added for ubuntu deploy
-	gem 'capistrano', '~> 3.4.0'
+	gem 'capistrano', '~> 3.4.1'
 	gem 'capistrano-rails', '~> 1.1.6'
 	gem 'capistrano-rbenv', github: "capistrano/rbenv"
 	gem 'capistrano-passenger'
