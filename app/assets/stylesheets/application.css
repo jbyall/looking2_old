@@ -20,6 +20,9 @@ body{
     padding-left: 40px;
     max-width: 800px;
 }
+h1{
+    color: #d1342b;
+}
 #content-container{
 	padding-left: 10px;
 	display: inline;
