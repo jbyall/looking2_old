@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.4.1'
 
 set :application, 'looking2'
 set :repo_url, 'git@github.com:jbyall/looking2.git'
